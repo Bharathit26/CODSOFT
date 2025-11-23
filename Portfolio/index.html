@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<link>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+<!--Navigation Bars-->
+<header class="header">
+    <nav id="navbar">
+    <header id="menu">Bharathi T | Portfolio</header>
+    <a class="nav-link" href="#Home">Home</a>
+    <a class="nav-link" href="#About">About</a>
+    <a class="nav-link" href="#Education">Education</a>
+    <a class="nav-link" href="#Experience">Experience</a>
+    <a class="nav-link" href="#Projects">Projects</a>
+    <a class="nav-link" href="#Skills">Skills</a>
+    <a class="nav-link" href="#Portfolio">Portfolio</a>
+    <a class="nav-link" href="#Contact">Contact</a>
+</nav>
+</header>
+
+<main id="main-doc">
+<!--Home-->
+<div id="Home">
+<section class="home-section">
+    <div id="profile">
+        <img src="assets/profile.jpg" alt="profile image">
+    </div>
+    <div class="home-content">
+       <h1 id="name">Hello!
+        <br>
+       <span id="name-font">I'm Bharathi T</span></h1>
+       <h2 id="position">
+        <span id="typing"></span>
+    </h2>
+
+    <p id="line">A confident and driven graduate focused on creating responsive web designs, user-friendly applications, and modern websites - 
+        while continuously mastering Java development to grow as a full-stack professional.  </p>
+    <div id="btn1">
+       <a href="#Contact"><button class="btn">Hire me</button></a>
+       <a href="#Portfolio"><button class="btn">Resume</button></a>
+    </div>
+    <div id="social-icons">
+    <a href="https://www.linkedin.com/in/bharathi-t-baba41245/" target="_blank" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/bharathit26" target="_blank" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+    </a>
+    <a href="https://x.com/BharathiT26/" target="_blank" aria-label="Twitter">
+        <i class="fa-brands fa-twitter"></i>
+    </a>
+    <a href="https://www.hackerrank.com/profile/bharathit0326" target="_blank" aria-label="HackerRank">
+        <i class="fa-brands fa-hackerrank"></i>
+    </a>
+    <a href="https://leetcode.com/u/bharathit26" target="_blank" class="leetcode-icon" aria-label="LeetCode">
+        <svg viewBox="0 0 24 24">
+            <path d="M16.53 3.53L14.47 1.47C14.07 1.07 13.44 1.07 13.03 1.47L5.47 9.03C5.07 9.44 5.07 10.07 5.47 10.47L13.03 18.03C13.44 18.44 14.07 18.44 14.47 18.03L16.53 15.97C16.93 15.56 16.93 14.94 16.53 14.53L10 8L16.53 3.53Z"/>
+            <path d="M19 9H11C10.45 9 10 9.45 10 10V14C10 14.55 10.45 15 11 15H19C19.55 15 20 14.55 20 14V10C20 9.45 19.55 9 19 9Z"/>
+        </svg>
+    </a>
+</div>
+    </div>
+</section>
+</div>
+
+<!--About-->
+<section id="About" class="about-section">
+     <div class="about- ">
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>
+               
+            </p>
+        </div>
+        <div>
+            
+        </div>
+     </div>
+</section>
+</main>
+
+<script>
+const roles = [
+    "Aspiring Java FullStack Developer",
+    "Web Developer",
+    "Frontend Developer",
+    "Postcard Designer"
+];
+
+const textElement = document.getElementById("typing");
+let roleIndex = 0;
+let charIndex = 0;
+let writing = true;
+
+function typeEffect() {
+    let current = roles[roleIndex];
+
+    if (writing) {
+        textElement.textContent = current.slice(0, charIndex++);
+        if (charIndex > current.length) {
+            writing = false;
+            setTimeout(typeEffect, 1000);
+            return;
+        }
+    } else {
+        textElement.textContent = current.slice(0, charIndex--);
+        if (charIndex < 0) {
+            writing = true;
+            roleIndex = (roleIndex + 1) % roles.length;
+        }
+    }
+
+    setTimeout(typeEffect, writing ? 120 : 80);
+}
+
+typeEffect();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar */
+#menu {
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.header {
+    position: relative;
+    z-index: 10;
+    padding: 14px;
+    background-color: #0a0a23 !important;
+    border-bottom: 4px solid #fdb347;
+    box-shadow: 0px 4px 10px rgba(253, 179, 71, 0.3);
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 12px 22px;
+    background-color: #0a0a23;
+    color: #fff;
+}
+
+.nav-link {
+    font-family: cursive;
+    position: relative;
+    padding: 8px 12px;
+    transition: .3s ease-in-out;
+    color: white;
+    font-size: 17px;
+}
+
+.nav-link:hover {
+    color: #fdb347;
+    transform: translateY(-2px);
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 3px;
+    background: #fdb347;
+    border-radius: 5px;
+    transition: width .3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+#navbar header {
+    font-weight: bold;
+    margin-right: auto;
+    font-size: 24px;
+    color: #fdb347;
+}
+
+/* Home Section */
+.home-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 120px;
+    height: 90vh;
+    padding: 30px 40px 40px;
+    background: url("assets/bg.jpg") center/cover no-repeat;
+}
+
+.home-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(6px);
+    z-index: 0;
+}
+
+.home-content,
+#profile {
+    position: relative;
+    z-index: 3;
+}
+
+/* Profile Image */
+#profile img {
+    width: 420px;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 22%;
+    border: none;
+
+    /* Glow Effect */
+    box-shadow: 
+        0 0 20px rgba(255, 159, 28, 0.7),
+        0 0 40px rgba(255, 94, 120, 0.5);
+
+    transition: transform .4s ease;
+}
+
+#profile img:hover {
+    transform: scale(1.05);
+}
+
+/* Text Styling */
+#name {
+    font-size: 44px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #004e4e, #00a88f, #00f2c3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Times New Roman', serif;
+}
+
+#name-font {
+    font-family: "Snell Roundhand", cursive;
+    font-size: 70px;
+    font-weight: bold;
+
+    background: linear-gradient(135deg, #ffb347, #ff5e78, #d22779);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0px 0px 15px rgba(255,105,135,0.3);
+}
+
+/* Typing Effect */
+#position {
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: -10px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+#typing {
+    font-size: 36px;
+    padding-right: 8px;
+    white-space: nowrap;
+    border-right: 3px solid #0a0a23;
+    animation: blinkCursor 0.7s infinite;
+
+    background: linear-gradient(135deg, #002c5a, #005d63, #0090ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    margin-top: -10px;  /* moves typing line up */
+}
+
+@keyframes blinkCursor {
+    50% { border-color: transparent; }
+}
+
+/* About Paragraph */
+#line {
+    font-family: 'Times New Roman', serif;
+    font-size: 18px;
+    margin-top: 10px;
+    line-height: 1.6;
+    max-width: 580px;
+    color: #1f1e1e;
+}
+
+/* Buttons */
+#btn1 {
+    margin-top: 25px;
+}
+
+.btn {
+    background: linear-gradient(135deg, #ffb347, #ff5e78);
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    margin-right: 18px;         /* space between buttons */
+    border-radius: 14px;        /* curved edges on all 4 corners */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    box-shadow: 0 4px 12px rgba(255, 94, 120, 0.35);
+    transition: .3s ease;
+}
+
+
+.btn:hover {
+    background: linear-gradient(135deg, #ff5e78, #d22779);
+    transform: translateY(-3px);
+    color: #fff;
+    box-shadow: 0 6px 15px rgba(210, 39, 121, 0.45);
+}
+
+/* Social Icons */
+#social-icons {
+    display: flex;
+    gap: 50px;
+    margin-top: 25px;
+    align-items: center;
+}
+
+#social-icons a {
+    font-size: 32px;
+    color: #0a0a23;
+    transition: 0.3s ease;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+#social-icons a:hover {
+    color: #ff5e78;
+    transform: translateY(-4px);
+}
+
+#social-icons .leetcode-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;      /* allows the icon to take the same color as others */
+    transition: 0.3s ease;
+}
+
+#social-icons .leetcode-icon:hover svg {
+    transform: translateY(-4px);
+    color: #ff5e78;          /* same hover color as others */
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    #navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-section {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 20px;
+        gap: 40px;
+    }
+
+    #profile img {
+        width: 260px;
+        height: 260px;
+    }
+
+    #name-font {
+        font-size: 42px;
+    }
+
+    #typing {
+        font-size: 24px;
+    }
+}
