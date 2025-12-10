@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Blog</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .blog-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .date {
+            color: gray;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            line-height: 1.6;
+            white-space: pre-line;
+            font-size: 17px;
+        }
+
+        a.back-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 18px;
+            background: #007bff;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a.back-btn:hover {
+            background: #005fcc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="blog-container">
+        <h1 id="title">Loading...</h1>
+        <div class="date" id="date"></div>
+        <div class="content" id="content"></div>
+
+        <a href="blogs.html" class="back-btn">← Back to Blogs</a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const blogId = params.get("id");
+
+        if (!blogId) {
+            document.getElementById("title").innerText = "Invalid Blog ID";
+        } else {
+            fetch("api/get_blog.php?id=" + blogId)
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById("title").innerText = data.Title;
+                    document.getElementById("date").innerText = "Published on: " + data.Created_at;
+                    document.getElementById("content").innerText = data.Content;
+                })
+                .catch(err => {
+                    document.getElementById("title").innerText = "Blog Not Found";
+                });
+        }
+    </script>
+
+</body>
+</html>

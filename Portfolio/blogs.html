@@ -1,0 +1,19 @@
+<h1>My Blogs</h1>
+<div id="blog-container"></div>
+
+<script>
+fetch("api/get_blogs.php")
+  .then(res => res.json())
+  .then(data => {
+      let html = "";
+      data.forEach(blog => {
+          html += `
+            <div class="blog-card">
+                <h3>${blog.Title}</h3>
+                <p>${blog.Content.substring(0,120)}...</p>
+                <a href="blog_view.html?id=${blog.Id}">Read More</a>
+            </div>`;
+      });
+      document.getElementById("blog-container").innerHTML = html;
+  });
+</script>
